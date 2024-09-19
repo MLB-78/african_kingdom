@@ -25,27 +25,9 @@
 ## Technologies Utilisées
 
 - **Backend** : Symfony 7.1
-- **Base de données** : MongoDB
-- **Frontend** : Bootstrap 5, HTML, CSS, JavaScript
+- **Base de données** : PhpMyAdmin
+- **Frontend** : Bootstrap 5, Twig
 - **Virtualisation** : Docker
-- **Authentification** : JWT (JSON Web Token), 2FA (Two-Factor Authentication)
+- **Authentification** : MFA (Two-Factor Authentication)
 - **CI/CD** : GitHub Actions ou GitLab CI
 - **Autres** : API Google Maps pour la géolocalisation
-
-## Prérequis
-
-Avant de commencer, assurez-vous d'avoir installé :
-
-- Docker et Docker Compose
-- PHP 8 ou version supérieure
-- Composer
-- Node.js et npm
-- MongoDB
-
-## Installation
-
-### 1. Cloner le dépôt
-
-```bash
-git clone https://github.com/ton-depot/lock-town-bell.git
-cd lock-town-bell
