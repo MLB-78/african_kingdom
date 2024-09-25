@@ -24,7 +24,7 @@
 
 ## Technologies Utilisées
 
-- **Backend** : Symfony 7.1
+- **Backend** : Symfony 7.1.4
 - **Base de données** : PhpMyAdmin
 - **Frontend** : Bootstrap 5, Twig
 - **Virtualisation** : Docker
