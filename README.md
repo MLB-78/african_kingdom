@@ -1,6 +1,6 @@
 # Lock-Town Bell
 
-<img src="Locktown%20Bell/mcd.png" alt="Texte alternatif" width="450">
+<img src="LockTown%20Bell/mcd.png" alt="Texte alternatif" width="450">
 
 ## Description
 
