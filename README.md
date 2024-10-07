@@ -12,6 +12,7 @@
 - Voir et répondre aux annonces en fonction de leur emplacement.
 - Authentification avec **2FA** (double authentification).
 - Intégration continue pour automatiser les tests et déploiements.
+- Sécurité (brut force, captcha, cnil)
 
 ## Fonctionnalités
 
