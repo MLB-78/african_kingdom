@@ -1,5 +1,7 @@
 # Lock-Town Bell
 
+<img src="Locktown%20Bell/mcd.png" alt="Texte alternatif" width="450">
+
 ## Description
 
 **Lock-Town Bell** est une application web de petites annonces en ligne. Elle permet aux utilisateurs de :
