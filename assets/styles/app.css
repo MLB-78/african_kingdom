@@ -14,7 +14,7 @@ nav{
 }
 
 .navbar {
-    background-color: white; /* Couleur de fond de la navbar */
+    background-color: white; 
 }
 
 .navbar-brand img {
@@ -32,7 +32,7 @@ nav{
 }
 
 .dropdown-menu {
-    background-color: white; /* Doit être la même que la navbar */
+    background-color: white; 
 }
 
 .dropdown-item:hover {
