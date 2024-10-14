@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CategoryRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
@@ -22,10 +23,13 @@ class Category
     private ?string $descriptionCat = null;
 
     /**
-     * @var Collection<int, annonce>
+     * @var Collection<int, Annonce>
      */
-    #[ORM\OneToMany(targetEntity: annonce::class, mappedBy: 'category')]
+    #[ORM\OneToMany(targetEntity: Annonce::class, mappedBy: 'category')]
     private Collection $annonces;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $photoCat = null;
 
     public function __construct()
     {
@@ -62,14 +66,14 @@ class Category
     }
 
     /**
-     * @return Collection<int, annonce>
+     * @return Collection<int, Annonce>
      */
     public function getAnnonces(): Collection
     {
         return $this->annonces;
     }
 
-    public function addAnnonce(annonce $annonce): static
+    public function addAnnonce(Annonce $annonce): static
     {
         if (!$this->annonces->contains($annonce)) {
             $this->annonces->add($annonce);
@@ -79,7 +83,7 @@ class Category
         return $this;
     }
 
-    public function removeAnnonce(annonce $annonce): static
+    public function removeAnnonce(Annonce $annonce): static
     {
         if ($this->annonces->removeElement($annonce)) {
             // set the owning side to null (unless already changed)
@@ -87,6 +91,18 @@ class Category
                 $annonce->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPhotoCat(): ?string
+    {
+        return $this->photoCat;
+    }
+
+    public function setPhotoCat(string $photoCat): static
+    {
+        $this->photoCat = $photoCat;
 
         return $this;
     }

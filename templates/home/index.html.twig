@@ -14,38 +14,22 @@
     </div>
 
     <h2 class="mb-3 text-dark-blue text-start">Catégories populaires</h2>
-    <div class="row">
+<div class="row">
+    {% for category in categories %}
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm" style="height: 360px;">
-                <img src="{{ asset('image/exotique.jpg') }}" class="card-img-top" alt="Alimentaire Exotique" style="height: 200px; object-fit: cover;">
+                <img src="{{ category.photoCat }}" style="height: 200px; object-fit: cover;">
+                
                 <div class="card-body">
-                    <h5 class="card-title">Alimentaire Exotique</h5>
-                    <p class="card-text">Découvrez les produits alimentaires d'Afrique.</p>
+                    <h5 class="card-title">{{ category.nameCat }}</h5>
+                    <p class="card-text">{{ category.descriptionCat }}</p>
                     <a href="#" class="btn btn-outline-dark">Voir les annonces</a>
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm" style="height: 360px;">
-                <img src="{{ asset('image/artisanat.webp') }}" class="card-img-top" alt="Artisanat Local" style="height: 200px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Artisanat Local</h5>
-                    <p class="card-text">Explorez l'artisanat fait main par les artistes locaux.</p>
-                    <a href="#" class="btn btn-outline-dark">Voir les annonces</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm" style="height: 360px;">
-                <img src="{{ asset('image/textile.jpg') }}" class="card-img-top" alt="Textiles et Vêtements" style="height: 200px; object-fit: cover;">
-                <div class="card-body">
-                    <h5 class="card-title">Textiles et Vêtements</h5>
-                    <p class="card-text">Trouvez des tissus uniques et de qualité.</p>
-                    <a href="#" class="btn btn-outline-dark">Voir les annonces</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% endfor %}
+</div>
+
 
     <!-- Section Histoire de LockTown Bell -->
     <div class="my-5">
