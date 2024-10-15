@@ -10,4 +10,9 @@ import '@popperjs/core';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+setTimeout(function() {
+    let alert = document.querySelector('.alert');
+    if (alert) {
+        alert.style.display = 'none';
+    }
+}, 6000);

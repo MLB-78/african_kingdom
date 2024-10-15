@@ -6,12 +6,15 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: '`user`')]
+#[ORM\HasLifecycleCallbacks] 
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+#[UniqueEntity(fields: ['email'], message: 'Il y a déja un compte avec cette adresse email')]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -46,8 +49,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var Collection<int, annonce>
      */
-    #[ORM\OneToMany(targetEntity: annonce::class, mappedBy: 'users')]
+    #[ORM\OneToMany(targetEntity: Annonce::class, mappedBy: 'users')]
     private Collection $annonces;
+
+    #[ORM\Column]
+    private bool $isVerified = false;
 
     public function __construct()
     {
@@ -158,12 +164,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->dateInscription;
     }
 
-    public function setDateInscription(\DateTimeImmutable $dateInscription): static
+    #[ORM\PrePersist]
+    public function setDateInscription(): void
     {
-        $this->dateInscription = $dateInscription;
-
-        return $this;
+        $this->dateInscription = new \DateTimeImmutable();
     }
+    
 
     /**
      * @return Collection<int, annonce>
@@ -191,6 +197,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $annonce->setUsers(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->isVerified;
+    }
+
+    public function setVerified(bool $isVerified): static
+    {
+        $this->isVerified = $isVerified;
 
         return $this;
     }

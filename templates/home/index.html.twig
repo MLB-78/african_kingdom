@@ -1,71 +1,84 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}LockTown - Accueil{% endblock %}
+{% block title %}KB - Accueil
+{% endblock %}
 
 {% block body %}
-<div class="container text-center my-5">
-    <h1 class="mb-4 text-dark-blue">Bienvenue sur Lock-Town Bell</h1>
-    <p class="lead mb-5">Trouvez vos annonces rapidement et facilement.</p>
-    <p class="lead mb-5 text-muted">Découvrez la richesse et la diversité de l'Afrique à travers nos annonces.</p>
-    
-    <div class="input-group mb-4 mx-auto" style="max-width: 600px;">
-        <input type="text" class="form-control" placeholder="Rechercher des produits..." aria-label="Recherche" style="height: 60px; font-size: 1.25rem;">
-        <button class="btn btn-primary" type="button" style="height: 60px;">Rechercher</button>
-    </div>
-
-    <h2 class="mb-3 text-dark-blue text-start">Catégories populaires</h2>
-<div class="row">
-    {% for category in categories %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm" style="height: 360px;">
-                <img src="{{ category.photoCat }}" style="height: 200px; object-fit: cover;">
-                
-                <div class="card-body">
-                    <h5 class="card-title">{{ category.nameCat }}</h5>
-                    <p class="card-text">{{ category.descriptionCat }}</p>
-                    <a href="#" class="btn btn-outline-dark">Voir les annonces</a>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
+	{% include 'partials/flashAuth.html.twig' %}
+	        {% if app.user %}
+            <p class="lead mb-5">Connecté en tant que <strong>{{ app.user.name }}</strong></p>
+        {% endif %}
+	<div class="container text-center my-5">
+		<h1 class="mb-4 text-dark-blue">Bienvenue sur Kingdom Bell</h1>
+		<p class="lead mb-5">Trouvez vos annonces rapidement et facilement.</p>
+		<p class="lead mb-5">Découvrez la richesse et la diversité de l'Afrique à travers nos annonces.</p>
 
 
-    <!-- Section Histoire de LockTown Bell -->
-    <div class="my-5">
-        <h2 class="text-dark-blue mb-4 text-start">L'Histoire de Lock-Town Bell</h2>
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <img src="{{ asset('image/wakanda.jpg') }}" alt="Histoire de LockTown Bell" class="img-fluid rounded mb-4 mb-md-0 image-hover-effect" style="width: 100%; height: auto;">
-            </div>
-            <div class="col-md-6">
-                <p class="lead text-start fs-4">
-                    Le projet LockTown Bell pensez entre la région du Littoral Sawa et le Nord du Zaïre. 
-                    LockTown Bell est née d'une vision : connecter les communautés à travers un réseau 
-                    d'annonces diversifiées et accessibles. Depuis sa création, la 
-                    plateforme s'est développée pour offrir des opportunités d'affaires locales et internationales, 
-                    des échanges culturels et une visibilité aux entrepreneurs locaux. 
-                    Plongez dans l'histoire fascinante de cette initiative, qui a su 
-                    faire évoluer le commerce et les services à travers l'Afrique.
-                </p>
-            </div>
-        </div>
-    </div>
+		<div class="input-group mb-4 mx-auto" style="max-width: 600px;">
+			<input type="text" class="form-control" placeholder="Rechercher des produits..." aria-label="Recherche" style="height: 60px; font-size: 1.25rem;">
+			<button class="btn btn-primary" type="button" style="height: 60px;">Rechercher</button>
+		</div>
 
-    <!-- Section Entreprises Partenaires -->
-    <div class="my-5">
-        <h2 class="text-dark-blue text-start mb-4">Nos Entreprises Partenaires</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-3">
-                <img src="{{ asset('image/wu.png') }}" alt="Western Union" class="img-fluid mb-4" style="max-height: 100px;">
-            </div>
-            <div class="col-md-3">
-                <img src="{{ asset('image/mtn.png') }}" alt="MTN" class="img-fluid mb-4" style="max-height: 100px;">
-            </div>
-            <div class="col-md-3">
-                <img src="{{ asset('image/top.jpg') }}" alt="TOP" class="img-fluid mb-4" style="max-height: 100px;">
-            </div>
-        </div>
-    </div>
-</div>
+		<h2 class="mb-3 text-dark-blue text-start">Catégories populaires</h2>
+		<div class="row">
+			{% for category in categories %}
+				<div class="col-md-4">
+					<div class="card mb-4 shadow-sm" style="height: 400px;">
+						<img src="{{ category.photoCat }}" style="height: 200px; object-fit: cover;">
+
+						<div class="card-body">
+							<h5 class="card-title">{{ category.nameCat }}</h5>
+							<p class="card-text">{{ category.descriptionCat }}</p>
+							<a href="#" class="btn btn-outline-dark">Voir les annonces</a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+
+		<!-- Section Histoire de LockTown Bell -->
+		<div class="my-5">
+			<h2 class="text-dark-blue mb-4 text-start">L'Histoire de Kingdom Bell</h2>
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<img src="{{ asset('image/wakanda.jpg') }}" alt="Histoire de LockTown Bell" class="img-fluid rounded mb-4 mb-md-0 image-hover-effect" style="width: 100%; height: auto;">
+				</div>
+				<div class="col-md-6">
+					<p class="lead text-start fs-4">
+						Le projet Kingdom Bell pensez entre la région du Littoral Sawa et le Nord du Zaïre. 
+						                    Kingdom Bell est née d'une vision : connecter les communautés à travers un réseau 
+						                    d'annonces diversifiées et accessibles. Depuis sa création, la 
+						                    plateforme s'est développée pour offrir des opportunités d'affaires locales et internationales, 
+						                    des échanges culturels et une visibilité aux entrepreneurs locaux. 
+						                    Plongez dans l'histoire fascinante de cette initiative, qui a su 
+						                    faire évoluer le commerce et les services à travers l'Afrique.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- Section Entreprises Partenaires -->
+		<div class="my-5">
+			<h2 class="text-dark-blue text-start mb-4">Nos Entreprises Partenaires</h2>
+			<div class="row justify-content-center">
+				<div class="col-md-3">
+					<img src="{{ asset('image/wu.png') }}" alt="Western Union" class="img-fluid mb-4" style="max-height: 100px;">
+				</div>
+				<div class="col-md-3">
+					<img src="{{ asset('image/mtn.png') }}" alt="MTN" class="img-fluid mb-4" style="max-height: 100px;">
+				</div>
+				<div class="col-md-3">
+					<img src="{{ asset('image/top.jpg') }}" alt="TOP" class="img-fluid mb-4" style="max-height: 100px;">
+				</div>
+			</div>
+		</div>
+
+		<!-- Citation -->
+		<div class="my-5">
+			<p class="font-italic text-dark-blue" style="font-size: 1.5rem;">
+				"Nous ne pouvons plus rester dans l’ombre. Nous ne devons pas avoir peur de nous lever et de nous faire entendre." - T'Challa
+			</p>
+		</div>
+	</div>
+
 {% endblock %}

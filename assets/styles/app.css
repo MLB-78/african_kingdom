@@ -27,6 +27,10 @@ nav{
     color: var(--dark-blue);
 }
 
+.navbar-light .navbar-nav .nav-link {
+    color: var(--dark-blue);
+}
+
 .text-dark-blue {
     color: var(--dark-blue);
 }
@@ -60,8 +64,18 @@ footer a {
     transition: transform 0.3s ease; 
 }
 
+.nav-link {
+    transition: text-decoration 0.3s ease, color 0.3s ease;
+}
 
-@media (max-width: 1000px) {
+.nav-link:hover {
+    text-decoration: underline; 
+    color: #00008b; 
+}
+
+
+
+@media (max-width: 1200px) {
     nav {
         height: 400px;
     }

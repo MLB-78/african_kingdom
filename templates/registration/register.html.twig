@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 87vh;">
+        <div class="col-md-6 fs-5">
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+            
+            <h1 class="text-center">Inscription</h1>
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm, {'attr': {'class': 'form-signup'}}) }}
+
+                {{ form_row(registrationForm.name, {
+                    label: 'Nom',
+                    'attr': {'class': 'form-control form-control-lg mb-3'}
+                }) }}
+
+                {{ form_row(registrationForm.phone, {
+                    label: 'Téléphone',
+                    'attr': {'class': 'form-control form-control-lg mb-3'}
+                }) }}
+
+                {{ form_row(registrationForm.email, {
+                    'attr': {'class': 'form-control form-control-lg mb-3'}
+                }) }}
+
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Mot de passe',
+                    'attr': {'class': 'form-control form-control-lg mb-3'}
+                }) }}
+
+                <div class="form-check mb-3">
+                    {{ form_widget(registrationForm.agreeTerms, {
+                        'attr': {'class': 'form-check-input', 'style': 'width: 1.5em; height: 1.5em;'}
+                    }) }} 
+                    {{ form_label(registrationForm.agreeTerms, 'J\'accepte les conditions d\'utilisation et la politique de confidentialité.', {'class': 'form-check-label'}) }}
+                </div>
+
+                <p class="small text-muted">
+                    En vous inscrivant, vous acceptez que vos données soient utilisées conformément à notre politique de confidentialité.
+                </p>
+
+                <button type="submit" class="btn btn-primary btn-lg w-100">S'inscrire</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}
