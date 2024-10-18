@@ -8,6 +8,7 @@
     "build": "encore production"
   },
   "dependencies": {
+    "intl-tel-input": "^24.6.0",
     "webpack-notifier": "^1.15.0"
   }
 }
