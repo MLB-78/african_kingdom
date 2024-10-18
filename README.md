@@ -1,10 +1,10 @@
-# Lock-Town Bell
+# African Kingdom
 
 <img src="LockTown%20Bell/mcd.png" alt="Texte alternatif" width="450">
 
 ## Description
 
-**Lock-Town Bell** est une application web de petites annonces en ligne. Elle permet aux utilisateurs de :
+**African Kingdom** est une application web de petites annonces en ligne. Elle permet aux utilisateurs de :
 - Créer un compte et se connecter.
 - Publier, modifier et supprimer des annonces (vente, location, services, etc.).
 - Rechercher des annonces par catégorie, prix, localisation, etc.
