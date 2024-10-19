@@ -9,12 +9,9 @@ body {
 }
 
 nav{
-    background-color: white;
+    background-color: #ffffc8;
 }
 
-.navbar {
-    background-color: white; 
-}
 
 .navbar-brand img {
     width: 50px;
@@ -49,6 +46,7 @@ nav{
 }
 
 footer {
+    background-color: #ffffc8;
     color: darkgreen;
     font-size: 1.25em; 
 }
@@ -63,6 +61,8 @@ footer a {
     transition: transform 0.3s ease; 
 }
 
+/* link navbar */
+
 .nav-link {
     transition: text-decoration 0.3s ease, color 0.3s ease;
 }
@@ -72,6 +72,17 @@ footer a {
     color: #00008b; 
 }
 
+/* normal link */
+
+a {
+    color: var(--dark-green); 
+    text-decoration: none; 
+}
+
+a:hover {
+    color: var(--dark-green);
+    text-decoration: underline; 
+}
 
 
 @media (max-width: 1200px) {
@@ -79,7 +90,7 @@ footer a {
         height: 400px;
     }
     .container-fluid.justify-content-between {
-        background-color: white;
+        background-color: #ffffc8;
     }
 
 }
