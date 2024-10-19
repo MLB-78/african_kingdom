@@ -84,6 +84,13 @@ a:hover {
     text-decoration: underline; 
 }
 
+/*auth */
+
+input{
+    height: 55px;
+}
+
+
 
 @media (max-width: 1200px) {
     nav {

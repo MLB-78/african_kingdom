@@ -3,19 +3,19 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 85vh;">
-    <form method="post" class="w-100" style="max-width: 400px;">
+<div class="container d-flex justify-content-center align-items-center fs-5" style="min-height: 85vh;">
+    <form method="post" class="w-100" style="max-width: 500px;">
 
         <h1 class="mb-3 text-center text-dark-green">Connexion</h1>
 
         <div class="mb-3 fs-5">
             <label for="username">Email</label>
-            <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control form-control-xl" style="height: 55px;" autocomplete="email" required autofocus>
+            <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control form-control-xl" autocomplete="email" required autofocus>
         </div>
 
         <div class="mb-3 fs-5">
             <label for="password">Mot de passe</label>
-            <input type="password" name="_password" id="password" class="form-control form-control-xl" style="height: 55px;" autocomplete="current-password" required>
+            <input type="password" name="_password" id="password" class="form-control form-control-xl" autocomplete="current-password" required>
         </div>
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
@@ -27,8 +27,8 @@
 
         <button class="btn btn-lg btn-success w-100 mb-3" type="submit">Se connecter</button>
 
-        <p class="text-center">
-            Vous n'avez pas encore de compte ? <a href="{{ path('app_register') }}">Inscrivez-vous ici</a>.
+        <p class="text-center" style="max-width: 100%; text-align: center; display: inline-block;">
+            Vous n'avez pas encore de compte ? <a href="{{ path('app_register') }}" style="color: darkgreen;">Inscrivez-vous ici</a>.
         </p>
 
         <p class="text-center">

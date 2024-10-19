@@ -31,11 +31,11 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var string $plainPassword */
-            $plainPassword = $form->get('plainPassword')->getData();
+            /** @var string $password */
+            $password = $form->get('password')->getData();
 
             // Encode the plain password
-            $user->setPassword($userPasswordHasher->hashPassword($user, $plainPassword));
+            $user->setPassword($userPasswordHasher->hashPassword($user, $password));
 
             // Set the registration date automatically
             $user->setDateInscription(new \DateTimeImmutable());

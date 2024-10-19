@@ -4,49 +4,65 @@
 
 {% block body %}
     <div class="container d-flex justify-content-center align-items-center" style="min-height: 87vh;">
-        <div class="col-md-6 fs-5">
+        <div class="fs-5 w-100" style="max-width: 500px;">
             {% for flash_error in app.flashes('verify_email_error') %}
                 <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
             {% endfor %}
             
-            <h1 class="text-center text-dark-green">Inscription</h1>
-
-            {{ form_errors(registrationForm) }}
+            <h1 class="text-center text-dark-green mb-5">Inscription</h1>
 
             {{ form_start(registrationForm, {'attr': {'class': 'form-signup'}}) }}
 
-                {{ form_row(registrationForm.name, {
-                    label: 'Nom',
-                    'attr': {'class': 'form-control form-control-lg mb-3'}
-                }) }}
+            {{ form_row(registrationForm.name, {
+                label: "Nom de l'entreprise",
+                'attr': {'class': 'form-control form-control-lg mb-3'},
+            }) }}
 
-                {{ form_row(registrationForm.phone, {
-                    label: 'Téléphone',
-                    'attr': {'class': 'form-control form-control-lg mb-3'}
-                }) }}
-
-                {{ form_row(registrationForm.email, {
-                    'attr': {'class': 'form-control form-control-lg mb-3'}
-                }) }}
-
-                {{ form_row(registrationForm.plainPassword, {
-                    label: 'Mot de passe',
-                    'attr': {'class': 'form-control form-control-lg mb-3'}
-                }) }}
-
-                <div class="form-check mb-3">
-                    {{ form_widget(registrationForm.agreeTerms, {
-                        'attr': {'class': 'form-check-input', 'style': 'width: 1.5em; height: 1.5em;'}
-                    }) }} 
-                    {{ form_label(registrationForm.agreeTerms, 'J\'accepte les conditions d\'utilisation et la politique de confidentialité.', {'class': 'form-check-label'}) }}
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    {{ form_row(registrationForm.phone, {
+                        label: 'Téléphone',
+                        'attr': {'class': 'form-control form-control-lg'},
+                    }) }}
                 </div>
+                <div class="col-md-6">
+                    {{ form_row(registrationForm.type, {
+                        'attr': {'class': 'form-control form-control-lg'},
+                    }) }}
+                </div>
+            </div>
 
-                <p class="small text-muted">
-                    En vous inscrivant, vous acceptez que vos données soient utilisées conformément à notre politique de confidentialité.
-                </p>
+            {{ form_row(registrationForm.email, {
+                'attr': {'class': 'form-control form-control-lg mb-3'},
+            }) }}
 
-                <button type="submit" class="btn btn-success btn-lg w-100">S'inscrire</button>
+            {{ form_row(registrationForm.password, {
+                label: 'Mot de passe',
+                'attr': {'class': 'form-control form-control-lg mb-3'},
+            }) }}
+
+            {{ form_row(registrationForm.confirmPassword, {
+                label: 'Confirmer le mot de passe',
+                'attr': {'class': 'form-control form-control-lg mb-3'},
+            }) }}
+
+            <div class="form-check mb-3">
+                {{ form_widget(registrationForm.agreeTerms, {
+                    'attr': {'class': 'form-check-input', 'style': 'width: 1.5em; height: 1.5em;'}
+                }) }} 
+                {{ form_label(registrationForm.agreeTerms, 'J\'accepte les conditions d\'utilisation et la politique de confidentialité.', {'class': 'form-check-label'}) }}
+            </div>
+
+            <p class="small text-muted">
+                En vous inscrivant, vous acceptez que vos données soient utilisées conformément à notre politique de confidentialité.
+            </p>
+
+            <button type="submit" class="btn btn-success btn-lg w-100">S'inscrire</button>
             {{ form_end(registrationForm) }}
+
+            <p class="text-center mt-3">
+                Vous avez déjà un compte ? <a href="{{ path('app_login') }}" style="color: darkgreen;">Connectez-vous ici.</a>
+            </p>
         </div>
     </div>
 {% endblock %}
